@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>items</title>
+</head>
+{% load  staticfiles %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+          <button  type="button" class="btn btn-success" style="font-size: 40px;margin-left: 400px;"><a href="{{ todolist.id }}/create">add item</a></button>
+        </div>
+        </div>
+</div>
+<center>
+    <table class="table table-hover bg-success" style="width: 100% ;height: 100px;">
+        <th style="text-align:center;font-size:60px;background-color: blueviolet;color: gold;font-family: 'Agency FB';">description</th>
+        <th style="text-align:center;font-size:60px;background-color: blueviolet;color: gold;font-family: 'Agency FB';">duedate</th>
+        <th style="text-align:center;font-size:60px;background-color: blueviolet;color: gold;font-family: 'Agency FB';">completed?</th>
+        {% for item in todolist.todoitem_set.all %}
+            <tr>
+            <td style="text-align: center;padding:15px;font-size: 25px;">{{ item.description }}</td>
+            <td style="text-align: center;padding:15px;font-size: 25px;">{{ item.duedate }}</td>
+            <td style="text-align: center;padding:15px;font-size: 25px;">{{ item.completed }}</td>
+            <td style="width:7%;"><button type="button" class="btn btn-warning"><a href="{{ item.name_id }}/{{ item.id }}/update">update</a></button></td>
+            <td style="width:5%;"><button  type="button" class="btn btn-danger"><a href="{{ item.name_id }}/{{ item.id }}/delete">delete</a></button></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </center>
+</body>
+</html>

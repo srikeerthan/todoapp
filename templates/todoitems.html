@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Items</title>
+    <style>
+        td{
+            padding: 40px;
+        }
+    </style>
+</head>
+<body style="background-color: #9d9d9d">
+<h1 style="text-align: center;color:gold;background-color:blue;">Items are:</h1>
+<table style="font-size: 40px;color:yellow;padding: 30px;border: dashed;text-align: center;margin-left: 260px;">
+<center>
+<th>description</th>
+<th>due date</th>
+<th>checked</th>
+{% for i in t_items %}
+    <tr>
+        <td>{{ i.description }}</td>
+        <td>{{ i.duedate }}</td>
+        <td>{{ i.completed }}</td>
+    </tr>
+    </center>
+{% endfor %}
+</table>
+</body>
+</html>

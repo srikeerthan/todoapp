@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo_lists</title>
+    <style>
+        th, td {
+    padding: 20px;
+}
+    </style>
+</head>
+{% load  staticfiles %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+<body background="images/backGround.jpg">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+          <button  type="button" class="btn btn-success" style="font-size: 40px;margin-left: 400px;"><a href="create">add list</a></button>
+        </div>
+        </div>
+</div>
+<div class="container">
+    <center>
+    <table class="table table-hover bg-success" style="width: 100% ;height: 100px;">
+        <th style="text-align:center;font-size:60px;background-color: blueviolet;color: gold;font-family: 'Agency FB';" >TO-DO LISTS</th>
+    <th style="background-color: blueviolet;"></th>
+        {% for li in todolist %}
+            <tr>
+            <td style="text-align: center;padding:15px;font-size: 25px;"><a href="{{ li.id }}">{{li.name}}</a></td>
+            <td style="background-color:lightcyan;color:black;width:15%;font-size: 15px;">created on:{{li.created}}</td>
+            <td style="width:7%;"><button type="button" class="btn btn-warning"><a href="{{ li.id }}/update">update</a></button></td>
+            <td style="width:5%;"><button  type="button" class="btn btn-danger"><a href="{{ li.id }}/delete">delete</a></button></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </center>
+</div>
+</body>
+</html>
