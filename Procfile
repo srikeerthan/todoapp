@@ -1,1 +1,1 @@
-web: gunicorn floating-beach-80943.wsgi
+web: gunicorn toDoProject.wsgi
